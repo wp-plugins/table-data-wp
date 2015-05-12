@@ -174,7 +174,8 @@ class Data_List_Table extends WP_List_Table {
 		$screen = get_current_screen();
 		
 		/* -- Preparing your query -- */
-		$query = "SELECT * FROM ".$wpdb->prefix."subscriptions";
+                $table=get_option('bp_tdata_tablename');
+		$query = "SELECT * FROM ".$wpdb->prefix.$table;
 		/* -- Ordering parameters -- */
 			//Parameters that are going to be used to order the result
 			$orderby = !empty($_GET["orderby"]) ? mysql_real_escape_string($_GET["orderby"]) : 'ASC';
